@@ -1,0 +1,26 @@
+<form>
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" [(ngModel)]="nombre" name="nombre" class="form-control" id="nombre" placeholder="Ingrese su nombre">
+    </div>
+    <div class="mb-3">
+        <label for="contrasena" class="form-label">Contraseña (la contrasena se generara automaticamente)</label>
+        <input type="password" [(ngModel)]="password" name="contrasena" class="form-control" id="contrasena" placeholder="Ingrese su contraseña">
+    </div>
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="username" [(ngModel)]="username" name="username" class="form-control" id="username" placeholder="Ingrese su Username">
+        
+    </div>
+    
+    <div class="mb-3">
+        <label for="rol" class="form-label">Rol</label>
+        <select class="form-select" id="rol" [(ngModel)]="rol" name="rol">
+            @for(rol of allRoles; track rol.id){
+                <option value="{{rol.id}}">{{rol.nombre}}</option>
+            }                
+        </select>
+    </div>
+    
+    <button type="button" (click)="enviar()" class="btn btn-primary">Enviar</button>
+</form>

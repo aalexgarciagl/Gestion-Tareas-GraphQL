@@ -1,0 +1,22 @@
+<div class="container">
+    <form>  
+      <div class="mb-3">
+        <label for="horas_realizadas" class="form-label">Horas realizadas</label>
+        <input type="number" [(ngModel)]="horas_realizadas" name="horas_realizadas" class="form-control" id="horas_realizadas" >
+      </div>    
+      <div class="mb-3">
+        <label for="porcentage_realizacion" class="form-label">Porcentage realizado</label>
+        <input type="number" [(ngModel)]="porcentage_realizacion" name="porcentage_realizacion" class="form-control" id="porcentage_realizacion" >
+      </div>    
+      <div class="mb-3">
+        <label for="completada" class="form-label">Completada</label>
+        <select [(ngModel)]="completada" name="completada" class="form-select" id="completada">
+            <option value=1>Si</option>
+            <option value=0>No</option>
+          </select>
+      </div>             
+      <button type="button" (click)="modificarTarea()" class="btn btn-primary">Modificar</button>
+      <button type="button" class="btn btn-danger marginleft" (click)="eliminarAsignacion()">Desasignar tarea</button>
+    </form>
+  </div>
+  

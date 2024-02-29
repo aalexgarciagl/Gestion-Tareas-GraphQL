@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Crear tarea</h2>
+  <form>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input type="text" class="form-control" id="description" [(ngModel)]="descripcion" name="descripcion" placeholder="Enter task description">
+    </div>
+    <div class="mb-3">
+      <label for="difficulty" class="form-label">Dificultad</label>
+      <select [(ngModel)]="dificultad" name="dificultad" class="form-select" id="difficulty">
+        <option value="XS">XS</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="horas_estimadas" class="form-label">Horas estimadas</label>
+      <input type="number" [(ngModel)]="horas_estimadas" name="horas_estimadas" class="form-control" id="horas_estimadas" placeholder="Enter estimated hours">
+    </div>    
+    <button type="button" (click)="crearTarea()" class="btn btn-primary">Crear</button>
+  </form>
+</div>

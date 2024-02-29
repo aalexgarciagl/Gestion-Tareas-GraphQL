@@ -1,0 +1,50 @@
+<div class="container">
+    <h2>Crear tarea</h2>
+    <form>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input type="text" class="form-control" id="description" [(ngModel)]="descripcion" name="descripcion" placeholder="Enter task description">
+      </div>
+      <div class="mb-3">
+        <label for="difficulty" class="form-label">Dificultad</label>
+        <select [(ngModel)]="dificultad" name="dificultad" class="form-select" id="difficulty">
+          <option value="XS">XS</option>
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="horas_estimadas" class="form-label">Horas estimadas</label>
+        <input type="number" [(ngModel)]="horas_estimadas" name="horas_estimadas" class="form-control" id="horas_estimadas" >
+      </div>    
+      <div class="mb-3">
+        <label for="horas_realizadas" class="form-label">Horas realizadas</label>
+        <input type="number" [(ngModel)]="horas_realizadas" name="horas_realizadas" class="form-control" id="horas_realizadas" >
+      </div>    
+      <div class="mb-3">
+        <label for="porcentage_realizacion" class="form-label">Porcentage realizado</label>
+        <input type="number" [(ngModel)]="porcentage_realizacion" name="porcentage_realizacion" class="form-control" id="porcentage_realizacion" >
+      </div>    
+      <div class="mb-3">
+        <label for="completada" class="form-label">Completada</label>
+        <select [(ngModel)]="completada" name="completada" class="form-select" id="completada">
+            <option value=1>Si</option>
+            <option value=0>No</option>
+          </select>
+      </div>    
+      <div class="mb-3">
+        <label for="asignarA" class="form-label">Asignar</label>
+        <select [(ngModel)]="asignado" name="asignado" class="form-select" id="asignado">
+            @for(user of users; track user.id){
+                <option value="{{user.id}}">{{user.name}}</option>                
+            }
+            <option value=null>Eliminar asignacion</option>
+          </select>
+          <button type="button" (click)="asignarTarea()" class="btn btn-success mt-2">Actualizar asignacion</button>
+      </div>    
+      <button type="button" (click)="modificarTarea()" class="btn btn-primary">Modificar</button>
+    </form>
+  </div>
+  

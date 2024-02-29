@@ -1,0 +1,37 @@
+<form>
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" [(ngModel)]="nombre" name="nombre" class="form-control" id="nombre" placeholder="Ingrese su nombre">
+    </div>
+    <div class="mb-3">
+        <label for="contrasena" class="form-label">Contraseña (la contrasena se generara automaticamente)</label>
+        <input type="password" [(ngModel)]="password" name="contrasena" class="form-control" id="contrasena" placeholder="Ingrese su contraseña">
+    </div>
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="username" [(ngModel)]="username" name="username" class="form-control" id="username" placeholder="Ingrese su Username">
+        
+    </div>
+    
+    <div class="mb-3">
+        <label for="rol" class="form-label">Add rol</label>
+        <select class="form-select" id="rol" [(ngModel)]="rolAdd" name="rolAdd">
+            @for(rol of rolesDisponibles; track rol.id){
+                <option value="{{rol.id}}">{{rol.nombre}}</option>
+            }                
+        </select>
+        <button type="button" (click)="addRol()" class="btn btn-success mt-3">Añadir rol</button>
+    </div>
+
+    <div class="mb-3">
+        <label for="rol" class="form-label">Delete rol</label>
+        <select class="form-select" id="rol" [(ngModel)]="rolEliminar" name="rolEliminar">
+            @for(rol of rolesActuales; track rol.id){
+                <option value="{{rol.id}}">{{rol.nombre}}</option>
+            }                
+        </select>
+        <button type="button" (click)="deleteRol()" class="btn btn-danger mt-3">Eliminar rol</button>
+    </div>
+    
+    <button type="button" (click)="enviar()" class="btn btn-primary">Enviar</button>
+</form>

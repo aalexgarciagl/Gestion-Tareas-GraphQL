@@ -1,0 +1,22 @@
+
+@if(!esRutaLogin()){
+  <body>
+    <header class="header">
+      <div class="header-title">Gestion de tareas</div>
+      <div class="header-buttons">
+        @if(roles.includes('administrador')){
+          <button (click)="goGestionUsers()" class="btn btn-primary">Gestion de usuarios</button>
+          <button (click)="goGestionTareas()" class="btn btn-success">Gestion de tareas</button>
+        }
+        @if(roles.includes('programador')){
+          <button  class="btn btn-yellow" (click)="goAllTasks()">Ver todas las tareas</button>
+          <button  class="btn btn-primary" (click)="goTareasDisponibles()">Ver tareas disponibles</button>
+          <button  class="btn btn-success" (click)="goTareasAsignadas()">Ver tareas asignadas</button>
+        }        
+        <button class="btn btn-danger" (click)="logout()">Cerrar sesion</button>
+      </div>
+    </header>
+  </body>
+}
+
+<router-outlet></router-outlet>

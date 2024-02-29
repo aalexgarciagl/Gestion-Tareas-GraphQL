@@ -1,0 +1,24 @@
+<div style="display: flex; justify-content: flex-start; align-items: center;">
+    <button class="btn btn-primary m-3" (click)="goInsertarUser()">Insertar usuario</button>
+</div>
+
+<table class="table table-striped text-center">
+    <thead>
+        <tr>            
+            <th>Nombre</th>
+            <th>Username</th>
+            <th>Eliminar</th>
+            <th>Info</th>
+        </tr>
+    </thead>
+    <tbody>        
+        @for (user of users; track user.id) {
+            <tr>                
+                <td>{{user.name}}</td>
+                <td>{{user.user_name}}</td>               
+                <td><button class="btn btn-danger" (click)="eliminarUser(user.id)">Eliminar</button></td>
+                <td><button class="btn btn-primary" (click)="goModificarUser(user.id)">Modificar</button></td>
+            </tr>
+            }
+    </tbody>
+</table>

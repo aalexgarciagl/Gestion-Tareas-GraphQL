@@ -1,0 +1,31 @@
+
+<table class="table table-striped text-center">
+    <thead>
+        <tr>            
+            <th>Descripcion</th>
+            <th>Dificultad</th>
+            <th>Horas previstas</th>
+            <th>Horas realizadas</th>
+            <th>Progreso</th>
+            <th>Completada</th>
+            <th>Asignar</th>
+        </tr>
+    </thead>
+    <tbody>        
+        @for (tarea of tasks; track tarea.id) {
+            <tr>                
+                <td>{{tarea.descripcion}}</td>
+                <td>{{tarea.dificultad}}</td>        
+                <td>{{tarea.horas_previstas}}</td>
+                <td>{{tarea.horas_realizadas}}</td>     
+                <td>{{tarea.porcentage_realizacion}}%</td>
+                @if(tarea.completada == 0){
+                    <td>No</td>
+                }@else{
+                    <td>Si</td>
+                }
+                <td><button class="btn btn-primary" (click)="asignarTarea(tarea.id)">Asignar</button></td>
+            </tr>
+            }
+    </tbody>
+</table>
